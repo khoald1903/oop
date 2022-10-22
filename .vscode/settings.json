@@ -1,0 +1,19 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    "code-runner.runInTerminal": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnPaste": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "code-runner.saveAllFilesBeforeRun": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    
+    "extensions.ignoreRecommendations": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.minimap.enabled": false,
+    "files.associations": {
+        "iostream": "cpp"
+    }
+    
+    
+}
