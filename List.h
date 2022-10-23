@@ -10,17 +10,30 @@ class List
         List();
         ~List();
         void ShowList();
-        void AddIndexK(Book book, int k);
-        void AddFirst(Book book);
-        void AddLast(Book book);
-        void DeleteIndexK(int k);
+        void AddIndexK(Book ,int);
+        void AddFirst(Book);
+        void AddLast(Book);
+
+        void IncreaseAmountBookFirst();
+        void IncreaseAmountBookLast();
+        void IncreaseAmountBookIndexK(int);
+
+        void DeleteIndexK(int);
         void DeleteFirst();
         void DeleteLast();
+
+        void ReduceAmountBookFirst();
+        void ReduceAmountBookLast();
+        void ReduceAmountBookIndexK(int);
+
         void UpdateInfor();
-        int Binary_search(string id); 
-        Book Getindex(int k);
-        void mergeSort(int l, int r, bool Func(Book a, Book b));
-        void merge(int l, int m, int r, bool Func(Book a, Book b));
+
+        int Binary_search(string); 
+        Book Getindex(int);
+
+        void mergeSort(int , int , bool Func(Book ,Book ));
+        void merge(int , int , int , bool Func(Book ,Book ));
+
         int Getsize();
-        Book &operator[](int i);
+        Book &operator[](int);
 };

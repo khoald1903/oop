@@ -1,5 +1,7 @@
 #include "List.h"
 
+
+
 List::List()
 {
     this->p = NULL;
@@ -23,14 +25,13 @@ Book& List::operator[](int i)
 
 void List::ShowList()
 {
-    if(size == 0) cout << "Danh sach rong!\n";
+   if(size == 0) cout << "Danh sach rong!\n";
     else
     {
         cout << "\t\t\t\t\t\tDanh sach: " << endl;
         for (int i = 0; i < size; i++)
         {
-            cout << "ID: " << p[i].GetID() << "   trang thai " << p[i].GetStatus() << "   ten sach:   " << p[i].GetName()
-                 << "   nam xuat ban: " << p[i].GetYear() << "   So luong: " << p[i].GetAmount() << endl;
+            cout << p[i];
         }
     }
     
@@ -58,7 +59,7 @@ void List::AddIndexK(Book book, int k)
 
 void List::AddFirst(Book book)
 {
-    AddIndexK(book,0);
+    AddIndexK(book, 0);
 }
 
 void List::AddLast(Book book)
@@ -128,23 +129,30 @@ void List::UpdateInfor()
             break;
         }
     }
-    if(flag = 0)
+    if(flag == 0)
     {
         cout << " Khong tim thay ID sach can cap nhat!";
     }
     else
     {
-        string id, name;
+        string name;
         int amount, year;
         bool status;
-        cout << "Moi nhap id:";
-        getline(cin, id); p[i].SetID(id);
-        cout << "Moi nhap ten:";
+        cout << "Moi nhap ten moi:";
         getline(cin, name); p[i].SetName(name);
         cout << "Moi nhap so luong:";
         cin >> amount; p[i].SetAmount(amount);
-        cout << "Moi nhap nhap nam:";
-        cin >> year; p[i].SetYear(year);
+        while (true)
+        {
+            cout << "Moi nhap nhap nam:";
+            cin >> year;
+            if ((int)(log10(year) + 1) != 4)
+            {
+                cout << "Nam xuat ban gom 4 chu cai, moi nhap lai!\n";
+            }
+            else
+                break;
+        }
         if (amount)
             status = true;
         else
@@ -215,4 +223,79 @@ void List::mergeSort(int l, int r, bool Func(Book a, Book b))
 Book List::Getindex(int k)
 {
      return p[k];
+}
+
+void List::IncreaseAmountBookFirst()
+{
+    if(size)
+    {
+        p[0].SetAmount(p[0].GetAmount()+1);
+    }
+    else
+    {
+        cout << "Danh sach rong!Moi ban them sach moi vao!\n";
+    }
+}
+
+void List::IncreaseAmountBookLast()
+{
+    if (size)
+    {
+        p[size-1].SetAmount(p[size-1].GetAmount() + 1);
+    }
+    else
+    {
+        cout << "Danh sach rong!Moi ban them sach moi vao!\n";
+    }
+}
+
+void List::IncreaseAmountBookIndexK(int index)
+{
+    if (size>=index && index >=0)
+    {
+        p[index].SetAmount(p[index].GetAmount() + 1);
+    }
+    else
+    {
+        cout << "Chua co phan tu thu index!Moi ban them sach moi vao!\n";
+    }
+}
+
+void List::ReduceAmountBookFirst()
+{
+    if (size)
+    {
+        p[0].SetAmount(p[0].GetAmount() -1 );
+        if(p[0].GetAmount() == 0) DeleteFirst();
+    }
+    else
+    {
+        cout << "Danh sach rong!Moi ban them sach moi vao!\n";
+    }
+}
+
+void List::ReduceAmountBookLast()
+{
+    if (size)
+    {
+        p[size-1].SetAmount(p[size-1].GetAmount() - 1);
+        if (p[size-1].GetAmount() == 0) DeleteLast();
+    }
+    else
+    {
+        cout << "Danh sach rong!Moi ban them sach moi vao!\n";
+    }
+}
+
+void List::ReduceAmountBookIndexK(int index)
+{
+    if (size >= index && index >= 0)
+    {
+        p[index].SetAmount(p[index].GetAmount() -1);
+        if (p[index].GetAmount() == 0) DeleteIndexK(index);
+    }
+    else
+    {
+        cout << "Chua co phan tu thu index!Moi ban them sach moi vao!\n";
+    }
 }

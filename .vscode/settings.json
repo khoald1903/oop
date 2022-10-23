@@ -12,7 +12,12 @@
     "editor.unicodeHighlight.invisibleCharacters": false,
     "editor.minimap.enabled": false,
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cmath": "cpp",
+        "string_view": "cpp",
+        "*.tcc": "cpp",
+        "iosfwd": "cpp",
+        "new": "cpp"
     }
     
     
