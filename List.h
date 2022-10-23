@@ -36,4 +36,6 @@ class List
 
         int Getsize();
         Book &operator[](int);
+        friend ostream &operator<<(ostream &out, List &L);
+        friend istream &operator>>(istream &in, List &L);
 };

@@ -72,6 +72,38 @@ ostream &operator<<(ostream &out, Book book)
     return out;
 }
 
+ostream &operator<<(ostream &out, List& L)
+{
+    if (L.Getsize() == 0)
+        out << "Danh sach rong!\n";
+    else
+    {
+        out << "\t\t\t\t\t\tDanh sach: " << endl;
+        for (int i = 0; i < L.Getsize(); i++)
+        {
+            out << L.p[i];
+        }
+    }
+
+    cout << "\t\t+---------------------------------------------------------------------" << endl;
+    return out;
+}
+
+istream &operator>>(istream &in, List& L)
+{
+    if(L.p != NULL) delete[] L.p;
+
+    cout << "Nhap kich thuoc danh sach";
+    in >> L.size;
+
+    L.p = new Book[L.size];
+
+    for(int i = 0; i < L.size; i++)
+    {
+        in >> L.p[i];
+    }
+    return in;
+}
 
 
     void Menu()
@@ -95,7 +127,8 @@ ostream &operator<<(ostream &out, Book book)
     cout << "\t\t|                  15.  Tim kiem sach theo ID                        |" << endl;   //Tìm kiếm sách theo id rồi đưa ra thông tin sách
     cout << "\t\t|                  16.  Sap xep danh sach tang dan                   |" << endl;   //Sắp xếp tăng dần theo ID
     cout << "\t\t|                  17.  Sap xep danh sach giam dan                   |" << endl;   //Sắp xếp giảm dần theo ID
-    cout << "\t\t|                  18.  Thoat                                        |" << endl;
+    cout << "\t\t|                  18.  Nhap moi hoan toan danh sach                 |" << endl;
+    cout << "\t\t|                  19.  Thoat                                        |" << endl;
     cout << "\t\t+---------------------------------------------------------------------" << endl;
 }
 
@@ -204,7 +237,12 @@ int main()
             //sap xep giam
             a.mergeSort(0, a.Getsize() - 1, desc);
         }
-        else if(d == 18)
+        else if (d == 18)
+        {
+            // sap xep giam
+            cin >> a;
+        }
+        else if (d == 19)
         {
             cout << "Ket thuc chuong trinh!" << endl;
             break;

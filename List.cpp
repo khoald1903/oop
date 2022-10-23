@@ -25,17 +25,7 @@ Book& List::operator[](int i)
 
 void List::ShowList()
 {
-   if(size == 0) cout << "Danh sach rong!\n";
-    else
-    {
-        cout << "\t\t\t\t\t\tDanh sach: " << endl;
-        for (int i = 0; i < size; i++)
-        {
-            cout << p[i];
-        }
-    }
-    
-    cout << "\t\t+---------------------------------------------------------------------" << endl;
+    cout << *this; 
 }
 
 void List::AddIndexK(Book book, int k)
