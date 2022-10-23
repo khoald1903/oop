@@ -20,7 +20,7 @@ int List::Getsize()
 Book& List::operator[](int i)
 { 
     static Book a; a.SetID(0);
-    return (i > 0) && (i < size) ? *(p+i) : a;
+    return (i > 0) && (i < size) ? *(p+i) : a; //nếu i nhập sai trả về giá trị rác
 }
 
 void List::ShowList()

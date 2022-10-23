@@ -1,4 +1,4 @@
-#include "List.cpp"
+#include "List.h"
 
 
 bool asc(Book a, Book b)
@@ -15,7 +15,7 @@ istream &operator>>(istream &in, Book &book)
 {
     while (true)
     {
-        in.ignore();
+        fflush(stdin);
         cout << "Moi nhap id:";
         in >> book.ID;
 
@@ -42,7 +42,7 @@ istream &operator>>(istream &in, Book &book)
         break;
     }
     cout << "Moi nhap ten:";
-    in.ignore();
+    fflush(stdin);
     getline(in, book.Name);
     cout << "Moi nhap so luong:";
     in >> book.Amount;
